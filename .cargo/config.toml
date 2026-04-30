@@ -1,0 +1,4 @@
+[alias]
+rb = "run --bin"
+cb = "check --bin"
+
