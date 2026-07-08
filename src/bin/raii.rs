@@ -1,0 +1,20 @@
+fn create_box() {
+    //在堆上分配一个整数
+    let _box1 = Box::new(3i32);
+}
+
+struct ToDrop;
+impl Drop for ToDrop {
+    fn drop(&mut self) {
+        println!("ToDrop被丢弃")
+    }
+}
+fn main() {
+    let _box2 = Box::new(5i32);
+    {
+        let _box3 = Box::new(4i32);
+    }
+    for _ in 0u32..1_000 {
+        create_box();
+    }
+}
